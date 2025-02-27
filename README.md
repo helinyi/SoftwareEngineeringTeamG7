@@ -1,1 +1,1 @@
-# SoftwareEngineeringTeamG7
+# Software Engineering Team G7

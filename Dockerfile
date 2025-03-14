@@ -1,32 +1,40 @@
-# Use the official lightweight Node.js image
-FROM node:18-slim
+# Use Python 3.11 slim image as base
+FROM python:3.11-slim
 
-# Create and change to the app directory
-WORKDIR /usr/src/app
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+  PYTHONUNBUFFERED=1 \
+  DJANGO_SETTINGS_MODULE=dealscout.settings
 
-# Create a package.json directly in the Dockerfile
-RUN echo '{"name":"hello-world","version":"1.0.0","main":"server.js","scripts":{"start":"node server.js"},"dependencies":{"express":"^4.18.2"}}' > package.json
+# Set work directory
+WORKDIR /app
 
-# Install production dependencies
-RUN npm install --only=production
+# Install system dependencies
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
+  build-essential \
+  libpq-dev \
+  && rm -rf /var/lib/apt/lists/*
 
-# Create server.js file with a simple Hello World Express app
-RUN echo 'const express = require("express"); \n\
-const app = express(); \n\
-const port = process.env.PORT || 8080; \n\
-\n\
-app.get("/", (req, res) => { \n\
-  res.send("Hello World from Google Cloud Run!"); \n\
-}); \n\
-\n\
-app.listen(port, () => { \n\
-  console.log(`Server listening on port ${port}`); \n\
-  console.log("Ready to serve requests"); \n\
-});' > server.js
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Service must listen to $PORT environment variable.
-# This value is provided by Google Cloud Run.
-ENV PORT 8080
+# Copy project files
+COPY . .
 
-# Run the web service on container startup
-CMD [ "node", "server.js" ]
+# Create directories for static and media files
+RUN mkdir -p /app/staticfiles /app/mediafiles
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
+# Expose port
+EXPOSE 8000
+
+# Create and switch to non-root user
+RUN useradd -m appuser && chown -R appuser:appuser /app
+USER appuser
+
+# Run gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "dealscout.wsgi:application", "--workers", "3"]

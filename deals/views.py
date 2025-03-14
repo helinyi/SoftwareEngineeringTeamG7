@@ -5,15 +5,17 @@ from .models import Product, ProductListing, Category, Retailer
 
 
 def home(request):
-    """首页视图"""
+    # Get the 10 products with the highest discount
     featured_deals = ProductListing.objects.filter(
         in_stock=True
-    ).order_by('-discount_percentage')[:10]  # 获取折扣最高的10个产品
+    ).order_by('-discount_percentage')[:10]
 
-    categories = Category.objects.filter(parent=None)[:8]  # 获取主要分类
+    # Get the main categories
+    categories = Category.objects.filter(parent=None)[:8]
 
+    # The latest added products
     trending_products = Product.objects.all().order_by(
-        '-created_at')[:8]  # 最新添加的产品
+        '-created_at')[:8]
 
     context = {
         'featured_deals': featured_deals,
@@ -24,7 +26,6 @@ def home(request):
 
 
 class ProductListView(ListView):
-    """产品列表视图"""
     model = Product
     template_name = 'deals/product_list.html'
     context_object_name = 'products'
@@ -33,7 +34,7 @@ class ProductListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
 
-        # 搜索功能
+        # Search feature
         search_query = self.request.GET.get('q', '')
         if search_query:
             queryset = queryset.filter(
@@ -42,12 +43,12 @@ class ProductListView(ListView):
                 Q(description__icontains=search_query)
             )
 
-        # 分类过滤
+        # Category filtering
         category_id = self.request.GET.get('category', '')
         if category_id and category_id.isdigit():
             queryset = queryset.filter(categories__id=category_id)
 
-        # 价格过滤 (使用最低价格)
+        # Price filtering (using the lowest price)
         min_price = self.request.GET.get('min_price', '')
         max_price = self.request.GET.get('max_price', '')
         if min_price and min_price.isdigit():
@@ -55,12 +56,12 @@ class ProductListView(ListView):
         if max_price and max_price.isdigit():
             queryset = queryset.filter(listings__price__lte=max_price)
 
-        # 品牌过滤
+        # Brand filtering
         brand = self.request.GET.get('brand', '')
         if brand:
             queryset = queryset.filter(brand__iexact=brand)
 
-        # 排序
+        # Sorting
         sort_by = self.request.GET.get('sort_by', 'newest')
         if sort_by == 'price_low':
             queryset = queryset.order_by('listings__price')
@@ -75,13 +76,13 @@ class ProductListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # 添加过滤器所需的数据
+        # Add data needed by filters
         context['categories'] = Category.objects.filter(parent=None)
         context['brands'] = Product.objects.order_by(
             'brand').values_list('brand', flat=True).distinct()
         context['retailers'] = Retailer.objects.filter(is_active=True)
 
-        # 保存当前的查询参数，用于分页
+        # Save current query parameters for pagination
         context['current_query'] = self.request.GET.copy()
         if 'page' in context['current_query']:
             del context['current_query']['page']
@@ -90,7 +91,7 @@ class ProductListView(ListView):
 
 
 class ProductDetailView(DetailView):
-    """产品详情视图"""
+    """Product detail view"""
     model = Product
     template_name = 'deals/product_detail.html'
     context_object_name = 'product'
@@ -99,29 +100,29 @@ class ProductDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         product = self.get_object()
 
-        # 获取该产品在各个零售商的价格
+        # Get the price of the product at each retailer
         context['listings'] = product.listings.filter(
             in_stock=True).order_by('price')
 
-        # 获取价格历史数据
+        # Get price history data
         if product.listings.exists():
             main_listing = product.listings.order_by('price').first()
-            context['price_history'] = main_listing.price_history.all()[
-                :30]  # 最近30条价格记录
+            # The last 30 price records
+            context['price_history'] = main_listing.price_history.all()[:30]
 
-        # 获取相关产品
+        # Get related products
         context['related_products'] = Product.objects.filter(
             categories__in=product.categories.all()
         ).exclude(id=product.id).distinct()[:6]
 
-        # 评论
+        # Reviews
         context['reviews'] = product.reviews.all().order_by('-created_at')
 
         return context
 
 
 def search_results(request):
-    """搜索结果视图"""
+    """Search results view"""
     query = request.GET.get('q', '')
 
     if not query:

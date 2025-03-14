@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-+@%ajvgg!_v5v#dvpm2@^k#q#^%!k)gq89-n7fw3ouu3xv)14(
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1',
-                 'softwareengineeringteamg7-979610128684.us-east4.run.app']
+                 'softwareengineeringteamg7-979610128684.us-east4.run.app',
+                'dealscout-dbhsg2gpdmf4bfaa.eastus-01.azurewebsites.net']
 
 
 # Application definition

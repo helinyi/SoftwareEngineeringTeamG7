@@ -1,0 +1,338 @@
+.sidebar {
+  background: #fff;
+  padding: 1.5rem;
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  width: 280px;
+}
+
+.sidebar h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-section {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.filter-section:last-child {
+  border-bottom: none;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+.filter-section h3 {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.filter-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.filter-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  accent-color: #000;
+}
+
+/* Price Filter Styles */
+.price-filter {
+  margin: 0.5rem 0 1rem;
+}
+
+.price-display {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.price-slider-container {
+  position: relative;
+  height: 40px;
+  margin: 0 8px;
+  touch-action: none;
+}
+
+.slider-track {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+}
+
+.slider-track-active {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: left 0.1s ease, width 0.1s ease;
+}
+
+.price-slider {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  pointer-events: none;
+  background: transparent;
+  z-index: 2;
+  outline: none;
+}
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  cursor: grab;
+  pointer-events: auto;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.price-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  cursor: grab;
+  pointer-events: auto;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.price-slider:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
+}
+
+.price-slider:active::-moz-range-thumb {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
+}
+
+.price-slider::-webkit-slider-runnable-track,
+.price-slider::-moz-range-track {
+  height: 4px;
+  background: transparent;
+  border: none;
+}
+
+.price-inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.25rem;
+  gap: 8px;
+}
+
+.price-inputs > span {
+  color: #666;
+}
+
+.price-input {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 0 8px;
+  flex: 1;
+  transition: background-color 0.2s;
+}
+
+.price-input:focus-within {
+  background-color: #eef3ff;
+}
+
+.price-input span {
+  color: #666;
+  margin-right: 4px;
+  font-size: 0.875rem;
+}
+
+.price-input input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 0.875rem;
+  color: #333;
+  -moz-appearance: textfield;
+}
+
+.price-input input::-webkit-outer-spin-button,
+.price-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price-input input:focus {
+  outline: none;
+}
+
+/* Price presets */
+.price-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.price-presets button {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.price-presets button:hover {
+  background: #eee;
+}
+
+.price-presets button:active {
+  background: #e0e0e0;
+  transform: translateY(1px);
+}
+
+/* Colors */
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.color-option {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.color-option.selected {
+  border-color: #000;
+}
+
+/* Brands */
+.brand-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.brand-btn {
+  background: #f7f7f7;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.brand-btn:hover {
+  background: #f0f0f0;
+}
+
+.brand-btn.selected {
+  background: #000;
+  color: #fff;
+}
+
+/* Deals & Discounts */
+.deals-section .filter-option {
+  padding: 0.25rem 0;
+}
+
+/* Apply Filter Button */
+.apply-filter-btn {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.apply-filter-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+} 

@@ -1,67 +1,49 @@
 # Tech Product Comparison Website
 
-A modern, responsive web application that allows users to browse, compare, and review various technology products. This platform enables side-by-side product comparisons, detailed specification viewing, and price comparison across multiple vendors.
+A modern web application that allows users to browse, compare, and make informed decisions about technology products. This platform provides detailed product specifications, side-by-side comparisons, and price tracking across multiple vendors.
 
-![Product Comparison Website Screenshot](./screenshot.png)
+## Overview
+
+This project is a front-end implementation of a product comparison platform focused on technology products. The application is built with React and features responsive design optimized for desktop displays.
 
 ## Features
 
-### Search and Discovery
-- Responsive product grid with filter sidebar
-- Advanced filtering by price range, brand, category, and ratings
-- Dynamic price slider with custom range input
-- Sort products by relevance, price, rating, and recency
-
-### Product Details
-- Comprehensive product information pages
-- Quick specifications overview with clean, structured layout
-- Detailed specifications organized by categories
-- Product reviews with rating breakdown
-- Price comparison across multiple vendors
-
-### Product Comparison
-- Side-by-side comparison of product specifications
-- Intelligent highlighting of superior specifications
-- Consistent image presentation with fixed aspect ratios
-- Category-based organization of specifications
-- Smart recommendations based on features and price
-
-### Responsive Design
-- Mobile-optimized interface
-- Tablet and desktop layouts
-- Consistent user experience across devices
-- Touch-friendly controls for mobile users
+- **Product Search** - Interactive grid layout with filtering and sorting
+- **Product Details** - Comprehensive product information with specifications, pricing, and reviews
+- **Product Comparison** - Side-by-side comparison with feature highlighting
+- **Responsive UI** - Desktop-optimized interface with consistent design
 
 ## Technologies Used
 
-- React.js for component-based UI
-- React Router for navigation
-- CSS with Grid and Flexbox for responsive layouts
-- React Icons for iconography
-- React Hooks for state management
+- **React.js** - Front-end UI library
+- **React Router** - Navigation and routing
+- **CSS** - Custom styling with Grid and Flexbox
+- **React Icons** - Icon components
+- **React Hooks** - State management
+- **JavaScript ES6+** - Modern JavaScript features
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or later)
-- npm (v6 or later)
+- Node.js (v14.0.0 or later)
+- npm (v6.0.0 or later)
 
 ### Installation
 
 1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/tech-product-comparison.git
-   cd tech-product-comparison
+   ```bash
+   git clone https://github.com/helinyi/SoftwareEngineeringTeamG7.git
+   cd SoftwareEngineeringTeamG7
    ```
 
 2. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
 
 3. Start the development server:
-   ```
+   ```bash
    npm start
    ```
 
@@ -72,15 +54,14 @@ A modern, responsive web application that allows users to browse, compare, and r
 ```
 src/
 ├── components/        # React components
-│   ├── FilterSidebar.js
-│   ├── ProductComparison.js
-│   ├── ProductDetail.js
-│   ├── ProductGrid.js
-│   ├── ProductList.js
-│   ├── ProductPricing.js
-│   ├── ProductReviews.js
-│   ├── ProductSpecifications.js
-│   └── Sidebar.js
+│   ├── Filter.js             # Filtering components
+│   ├── FilterSidebar.js      # Sidebar with filters
+│   ├── Navbar.js             # Navigation bar
+│   ├── ProductCard.js        # Individual product card
+│   ├── ProductComparison.js  # Side-by-side comparison
+│   ├── ProductDetail.js      # Detailed product view
+│   ├── ProductGrid.js        # Grid display of products
+│   └── ... other components
 ├── styles/            # Component-specific CSS files
 ├── App.js             # Main application component
 └── index.js           # Application entry point
@@ -88,29 +69,40 @@ src/
 
 ## Usage
 
-### Browsing Products
-- Navigate to the home page to view all products
-- Use the filter sidebar to narrow down products by category, price, brand, or rating
-- Click on a product card to view detailed information
+### Search and Filter Products
+- Use the filter sidebar to refine by price range, category, brand, or ratings
+- Sort products by relevance, price, ratings, or release date
+- Click any product card to view its detailed information
 
-### Viewing Product Details
-- The product detail page shows comprehensive information about a product
-- Switch between tabs to view specifications, pricing, and reviews
-- Click "Compare with another product" to initiate a comparison
+### View Product Details
+- Navigate through tabbed sections showing specifications, pricing, and reviews
+- Compare current product with other similar products
 
-### Comparing Products
-- From a product detail page, click "Compare with another product"
-- Select another product from the same category to compare with
-- View the side-by-side comparison highlighting the differences
-- Use the conclusion section to see recommendations
+### Compare Products
+- Select multiple products to view a side-by-side comparison
+- Easily identify superior specifications highlighted automatically
+- View organized comparison by categories (specs, features, pricing)
 
-## Future Enhancements
+## Implementation Details
 
-- User authentication and personalized recommendations
-- Save favorite products and comparisons
-- Price history tracking with charts
-- User-generated reviews and ratings
-- Email notifications for price drops
+### Key Technical Features
+- Modular component architecture for maintainability
+- CSS fixed aspect ratios for consistent product image display
+- Specification-matching algorithm for accurate comparisons
+- Mock data implementation simulating database integration
+
+### Responsive Design
+- Desktop-first design approach with defined breakpoints
+- Accessible interface with keyboard navigation support
+- High contrast text and semantic HTML structure
+
+## Future Roadmap
+
+- Back-end integration
+- User authentication and accounts
+- Price history tracking
+- User reviews and ratings
+- Mobile optimization
 
 ## License
 
@@ -118,5 +110,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- Design inspiration from major tech comparison websites
-- Mock data based on real product specifications
+- Design inspiration from leading tech comparison websites
+- Mock product data based on real specifications

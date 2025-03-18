@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get(
-    'ALLOWED_HOSTS', 'localhost,127.0.0.1,0.0.0.0,softwareengineeringteamg7-979610128684.us-east4.run.app,dealscout-dbhsg2gpdmf4bfaa.eastus-01.azurewebsites.net').split(',')
+    'ALLOWED_HOSTS', 'localhost,127.0.0.1,0.0.0.0,dealscout-979610128684.us-east4.run.app,dealscout-dbhsg2gpdmf4bfaa.eastus-01.azurewebsites.net').split(',')
 
 # Application definition
 

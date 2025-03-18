@@ -55,36 +55,32 @@ COPY --from=frontend-builder /app/build/static/css/ /app/static/react/css/
 RUN mkdir -p /app/static/react/media
 
 # Create the Django template with proper static tags
-RUN cat > /app/deals/templates/react/index.html <<EOF
-<!doctype html>{% load static %}
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
-    <meta name="description" content="DealScout API Backend"/>
-    <title>DealScout API Backend</title>
-EOF
+RUN echo '<!doctype html>{% load static %}' > /app/deals/templates/react/index.html && \
+  echo '<html lang="en">' >> /app/deals/templates/react/index.html && \
+  echo '<head>' >> /app/deals/templates/react/index.html && \
+  echo '    <meta charset="utf-8"/>' >> /app/deals/templates/react/index.html && \
+  echo '    <meta name="viewport" content="width=device-width,initial-scale=1"/>' >> /app/deals/templates/react/index.html && \
+  echo '    <meta name="theme-color" content="#000000"/>' >> /app/deals/templates/react/index.html && \
+  echo '    <meta name="description" content="DealScout API Backend"/>' >> /app/deals/templates/react/index.html && \
+  echo '    <title>DealScout API Backend</title>' >> /app/deals/templates/react/index.html
 
 # Copy the asset-manifest to help identify the file names
 COPY --from=frontend-builder /app/build/asset-manifest.json /tmp/asset-manifest.json
 
 # Find and add JS and CSS files to the template using asset-manifest.json
 RUN JS_FILENAME=$(grep -o '"main.js": "[^"]*"' /tmp/asset-manifest.json | cut -d'"' -f4 | sed 's|.*/||' | head -n 1) && \
-    CSS_FILENAME=$(grep -o '"main.css": "[^"]*"' /tmp/asset-manifest.json | cut -d'"' -f4 | sed 's|.*/||' | head -n 1) && \
-    echo "    <script defer=\"defer\" src=\"{% static 'react/js/$JS_FILENAME' %}\"></script>" >> /app/deals/templates/react/index.html && \
-    echo "    <link href=\"{% static 'react/css/$CSS_FILENAME' %}\" rel=\"stylesheet\">" >> /app/deals/templates/react/index.html && \
-    echo "Template created with files: JS=$JS_FILENAME, CSS=$CSS_FILENAME"
+  CSS_FILENAME=$(grep -o '"main.css": "[^"]*"' /tmp/asset-manifest.json | cut -d'"' -f4 | sed 's|.*/||' | head -n 1) && \
+  echo "    <script defer=\"defer\" src=\"{% static 'react/js/$JS_FILENAME' %}\"></script>" >> /app/deals/templates/react/index.html && \
+  echo "    <link href=\"{% static 'react/css/$CSS_FILENAME' %}\" rel=\"stylesheet\">" >> /app/deals/templates/react/index.html && \
+  echo "Template created with files: JS=$JS_FILENAME, CSS=$CSS_FILENAME"
 
 # Complete the template
-RUN cat >> /app/deals/templates/react/index.html <<EOF
-</head>
-<body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
-</body>
-</html>
-EOF
+RUN echo '</head>' >> /app/deals/templates/react/index.html && \
+  echo '<body>' >> /app/deals/templates/react/index.html && \
+  echo '<noscript>You need to enable JavaScript to run this app.</noscript>' >> /app/deals/templates/react/index.html && \
+  echo '<div id="root"></div>' >> /app/deals/templates/react/index.html && \
+  echo '</body>' >> /app/deals/templates/react/index.html && \
+  echo '</html>' >> /app/deals/templates/react/index.html
 
 # Collect static files
 RUN python manage.py collectstatic --noinput

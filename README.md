@@ -39,3 +39,4 @@ Using sqlite3 for development for now (allowed in gitignore and dockerignore).
 
 1. Just push to the main branch and the CI/CD pipelines will deploy to Google Cloud Run and Azure App Service automatically.
 
+

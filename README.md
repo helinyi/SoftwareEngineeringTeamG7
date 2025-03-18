@@ -1,4 +1,4 @@
-# Tech Product Comparison Website
+#  DealScout
 
 A modern web application that allows users to browse, compare, and make informed decisions about technology products. This platform provides detailed product specifications, side-by-side comparisons, and price tracking across multiple vendors.
 
@@ -11,7 +11,6 @@ This project is a front-end implementation of a product comparison platform focu
 - **Product Search** - Interactive grid layout with filtering and sorting
 - **Product Details** - Comprehensive product information with specifications, pricing, and reviews
 - **Product Comparison** - Side-by-side comparison with feature highlighting
-- **Responsive UI** - Desktop-optimized interface with consistent design
 
 ## Technologies Used
 
@@ -95,14 +94,6 @@ src/
 - Desktop-first design approach with defined breakpoints
 - Accessible interface with keyboard navigation support
 - High contrast text and semantic HTML structure
-
-## Future Roadmap
-
-- Back-end integration
-- User authentication and accounts
-- Price history tracking
-- User reviews and ratings
-- Mobile optimization
 
 ## License
 

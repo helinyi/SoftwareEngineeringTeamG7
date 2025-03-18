@@ -1,0 +1,90 @@
+/* Overall container */
+.signup-container {
+    display: flex;
+    background: black;
+    color: white;
+    min-height: 70vh;
+    justify-content: space-between;
+    padding: 50px;
+}
+  
+/* Form section */
+.signup-form {
+    width: 40%;
+    max-width: 50%;
+    padding: 30px;
+}
+  
+.signup-form h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+  
+.signup-form p {
+    margin-bottom: 20px;
+}
+  
+.input-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+  
+input[type="text"], input[type="email"], input[type="password"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+  
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+  
+.checkbox-container input {
+    margin-right: 10px;
+}
+  
+.checkbox-container a {
+    color: gold;
+    text-decoration: none;
+}
+  
+/* Button */
+.signup-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #7a6c3e, #a29052);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+  
+/* Right image section */
+.signup-image img {
+    max-height: 500px;
+    object-fit: cover;
+    /* border-radius: 20px; */
+}
+  
+/* Responsive */
+@media (max-width: 768px) {
+.signup-container {
+    flex-direction: column;
+    align-items: center;
+}
+  
+.signup-form, .signup-image {
+    max-width: 100%;
+    padding: 20px;
+}
+  
+.signup-image img {
+    width: 100%;
+    }
+}

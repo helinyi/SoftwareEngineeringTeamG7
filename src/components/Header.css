@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: white;
+}
+  
+.nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+}
+  
+.search-bar {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #878686;
+  margin-right: 15px;
+}
+  
+.icon {
+  margin: 0 5px;
+  cursor: pointer;
+}

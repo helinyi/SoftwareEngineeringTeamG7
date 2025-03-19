@@ -15,7 +15,7 @@ Deal Scout is a modern e-commerce platform focused on price comparison, built us
 1. **Node.js**: Install Node.js (version 16 or higher) which includes npm (Node Package Manager).
 2. **Git**: Install Git for version control.
 
-Here's a draft of the README file based on the information provided:
+
 
 ---
 

@@ -1,115 +1,81 @@
-<<<<<<< HEAD
-# DealScout - Price Comparison Platform
+### Deal Scout - Price Comparison E-Commerce Platform
 
-Google cloud run URL: https://dealscout-979610128684.us-east4.run.app
+**About the Project**  
+Deal Scout is a modern e-commerce platform focused on price comparison, built using React and Material UI. It includes features such as user profile management, price alerts, and responsive design.
 
-~~Azure App Service URL: https://dealscout-dbhsg2gpdmf4bfaa.eastus-01.azurewebsites.net~~
+### Getting Started  
+**Prerequisites:**  
+1. **Node.js**: Install Node.js (version 16 or higher) which includes npm (Node Package Manager).
+2. **Git**: Install Git for version control.
 
-Using sqlite3 for development for now (allowed in gitignore and dockerignore).
+**Installation Steps:**  
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/helinyi/SoftwareEngineeringTeamG7.git
+   cd deal-scout
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+4. Open your browser and navigate to:
+   ```text
+   http://localhost:3000
+   ```
 
-## Django Admin user (in sqlite3)
+### Product Design  
+**Focus:** Front-end development, including key components for the user experience.  
+Key features include user authentication, navigation components, and an attractive landing page.
 
-- username: dealscout
-- password: jhdnPv3KO3ppMeATXW7N
+### Technical Approach  
+**Architecture:**  
+- **Modular, Component-Based Structure** for maintainability and scalability.  
+- **Data Handling:** Used mock data for product listings, error handling, and front-end validations.
 
----
+**Performance Optimization:**  
+- Optimized images and reduced unnecessary renders using React optimization techniques.
 
-# HOWTOs
+**Design Consistency:**  
+- **Design System**: Developed a unified system for colors, typography, spacing, and component styling.
+- **Responsive Design**: Ensured desktop-first, adaptable for other screen sizes.
 
-## How to run locally for development (both django backend and react frontend)
+### Accessibility  
+- **Semantic HTML** for better structure.
+- **Color Contrast**: Meets accessibility guidelines.
+- **Keyboard Navigation**: Full support for interaction using the keyboard.
 
-1. `pip install -r requirements.txt` to install dependencies
-2. `./deal-frontend-build.sh` to build the frontend
-3. `python manage.py collectstatic --noinput` to collect static files
-4. `python manage.py runserver` to run the server
+### Landing Page  
+Developed with React.js using functional components.  
+- **CSS Flexbox and Grid** used for responsive design.
+- **React Hooks** like useState and useEffect for state management.
 
-## How to run locally to test production build (django backend and react frontend)
+### User Authentication  
+**Sign-Up Page:**  
+- Included form validation, a checkbox for terms and conditions, and a two-column layout.  
+**Login Page:**  
+- Social login options and features like "Remember Me" and "Forgot Password."
 
-1. `pip install -r requirements.txt` to install dependencies
-2. `./deal-frontend-build.sh` to build the frontend
-3. `python manage.py collectstatic --noinput` to collect static files
-4. `gunicorn --bind 0.0.0.0:8000 dealscout.wsgi:application --workers 3` to run the server
+### Header & Footer Components  
+**Header:**  
+- Responsive layout with CSS Flexbox, navigation links, and a search bar.  
+**Footer:**  
+- Multi-section with social media integration, ensuring responsive design.
 
-## How to build docker locally
+### Product Comparison Pages  
+**Key Features Implemented:**  
+- **Search Page:** Displays products with thumbnails, price, and key attributes, with filters and sorting capabilities.
+- **Product Detail Page:** Displays product details like specifications, price comparison, and user reviews.
+- **Product Comparison Feature:** Side-by-side comparison, highlighting superior specifications.
 
-1. `docker build -t dealscout .` to build the docker image
-2. `docker run -p 8000:8000 dealscout` to run the docker container
-3. access the app at http://localhost:8000
+### Price Alert Setup & User Dashboards  
+**Price Alert Setup Page:**  
+- Users can set price drop alerts via email/phone, with a simple interface for setting thresholds.
 
-## How to deploy to Google Cloud Run and Azure App Service
+**User Dashboard & Profile Page:**  
+- Displays alerts, tracked items, AI-driven recommendations, and allows profile management.
 
-1. Just push to the main branch and the CI/CD pipelines will deploy to Google Cloud Run and Azure App Service automatically.
 
-
-=======
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> a980f1a (Initialize project using Create React App)

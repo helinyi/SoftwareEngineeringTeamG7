@@ -5,7 +5,7 @@
 
 
 
-This repository contains two distinct React front-end projects: **Price Alert Setup Page** and **User Dashboard & Profile Page**. Although the project folders may appear unclickable in GitHub, they function correctly when cloned and run locally.
+This repository contains two distinct React front-end projects: **User Dashboard & Profile Page**. Although the project folders may appear unclickable in GitHub, they function correctly when cloned and run locally.
 
 **About the Project**  
 Deal Scout is a modern e-commerce platform focused on price comparison, built using React and Material UI. It includes features such as user profile management, price alerts, and responsive design.
@@ -20,15 +20,7 @@ Deal Scout is a modern e-commerce platform focused on price comparison, built us
 ---
 
 
-### Price Alert Setup Page
-<img width="384" alt="Screenshot 2025-03-18 215857" src="https://github.com/user-attachments/assets/fb11afb7-360f-4411-be66-f1d8a7e18328" />
 
-The Price Alert Setup Page is designed to allow users to configure notifications for price drops. Key features include:
-
-- **Price Threshold Setting**: Users can set a desired price threshold for notifications.
-- **Notification Method Selection**: Users can choose between email and phone notifications.
-- **Product Information Display**: Displays the product name and current price.
-- **User Action Buttons**: Includes "Set Alert" and "Cancel" buttons for user actions.
 
 ### User Dashboard & Profile Page
 <img width="299" alt="Screenshot 2025-03-18 215835" src="https://github.com/user-attachments/assets/f524c01d-3f49-4fa4-a233-e28dccdb5485" />
@@ -61,18 +53,16 @@ To run these projects, follow these steps:
 
 3. Switch to the `ShreeramDev` branch:
    ```bash
-   git checkout ShreeramDev
+   git checkout ShreeramUser
    ```
 
 4. Install necessary dependencies for each project:
    ```bash
-   # Navigate to the project folder (e.g., user-profile or price-alert)
+   # Navigate to the project folder 
    cd user-profile
    npm install
    
-   # Repeat for the other project
-   cd ../price-alert
-   npm install
+  
    ```
 
 5. Start each project:
@@ -80,10 +70,7 @@ To run these projects, follow these steps:
    # For user-profile
    cd user-profile
    npm start
-   
-   # For price-alert
-   cd ../price-alert
-   npm start
+
    ```
 
-These projects should now be accessible and functional in your local environment !!!!!! :>
+These projects should now be accessible and functional in your local environment !!!!!

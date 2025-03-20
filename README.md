@@ -1,7 +1,7 @@
 
 # Software Engineering Team G7 Project
 
-### Deal Scout - Price Comparison E-Commerce Platform
+### Deal Scout - Price Comparison E-Commerce Platform  User Dashboard & Profile Page
 
 
 

@@ -67,4 +67,4 @@ To run these projects, follow these steps:
    npm start
    ```
 
-These projects should now be accessible and functional in your local environment !!!!!!
+These projects should now be accessible and functional in your local environment !!!!!

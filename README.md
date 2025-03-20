@@ -5,8 +5,7 @@
 
 
 
-This repository contains two distinct React front-end projects: **User Dashboard & Profile Page**. Although the project folders may appear unclickable in GitHub, they function correctly when cloned and run locally.
-
+This repository contains two distinct React front-end projects: **User Dashboard & Profile Page**.
 **About the Project**  
 Deal Scout is a modern e-commerce platform focused on price comparison, built using React and Material UI. It includes features such as user profile management, price alerts, and responsive design.
 
